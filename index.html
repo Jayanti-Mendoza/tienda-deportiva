@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniformes y Accesorios Deportivos</title>
+    <!-- Fuentes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS Externo -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/529993688277?text=Hola,%20me%20interesa%20obtener%20información%20sobre%20sus%20playeras" 
+       class="btn-whatsapp" target="_blank" aria-label="Contacto por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="tooltip-wa">¡Cotiza por WhatsApp!</span>
+    </a>
+
+    <!-- Encabezado y Navbar -->
+    <header class="header">
+        <div class="top-bar">
+            <span><i class="fa-solid fa-truck"></i> Envíos locales y nacionales a todo México</span>
+            <span><i class="fa-solid fa-phone"></i> WhatsApp Directo: 999 368 8277</span>
+        </div>
+        <nav class="navbar">
+            <a href="#inicio" class="logo">
+                <i class="fa-solid fa-shirt"></i>
+                <span>DEPORTIVOS</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#mas-vendidos" class="nav-link">Más Vendidos</a></li>
+                <li><a href="#productos" class="nav-link">Productos</a></li>
+                <li><a href="#promociones" class="nav-link">Promociones</a></li>
+                <li><a href="#envios" class="nav-link">Envíos</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero / Inicio -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <span class="badge">Uniformes y Accesorios Deportivos</span>
+            <h1>VISTE LA PASIÓN DE TU EQUIPO</h1>
+            <p>Playeras de fútbol versión aficionado, jugador y retro con la mejor calidad del mercado.</p>
+            <div class="hero-btns">
+                <a href="#productos" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Ver Catálogo</a>
+                <a href="https://wa.me/529993688277?text=Hola,%20quiero%20cotizar%20un%20pedido" target="_blank" class="btn btn-outline"><i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrusel: Más Vendidos -->
+    <section id="mas-vendidos" class="carrusel-section">
+        <div class="section-title">
+            <h2>Más Vendidas 🔥</h2>
+            <p>Las camisetas favoritas de nuestra afición este mes</p>
+        </div>
+
+        <div class="carrusel-container">
+            <button class="carrusel-btn prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+
+            <div class="carrusel-track-container">
+                <div class="carrusel-track" id="carruselTrack">
+
+                    <div class="carrusel-card">
+                        <span class="card-badge">Top 1</span>
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" alt="Real Madrid 2024">
+                        <div class="card-info">
+                            <h3>Real Madrid Local 24/25</h3>
+                            <p class="precio">$699 MXN</p>
+                            <a href="https://wa.me/529993688277?text=Hola,%20me%20interesa%20la%20playera%20Real%20Madrid%20Local" target="_blank" class="btn-card"><i class="fa-brands fa-whatsapp"></i> Comprar</a>
+                        </div>
+                    </div>
+
+                    <div class="carrusel-card">
+                        <span class="card-badge">Top 2</span>
+                        <img src="https://store.fcbarcelona.com/cdn/shop/files/VO260820A75826_med.jpg?v=1787727940&width=640" alt="Barcelona 204">
+                        <div class="card-info">
+                            <h3>FC Barcelona Visita 24/25</h3>
+                            <p class="precio">$699 MXN</p>
+                            <a href="https://wa.me/529993688277?text=Hola,%20me%20interesa%20la%20playera%20Barcelona" target="_blank" class="btn-card"><i class="fa-brands fa-whatsapp"></i> Comprar</a>
+                        </div>
+                    </div>
+
+                    <div class="carrusel-card">
+                        <span class="card-badge">Top 3</span>
+                        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=600&q=80" alt="Argentina Edición Especial">
+                        <div class="card-info">
+                            <h3>Argentina 3 Estrellas</h3>
+                            <p class="precio">$749 MXN</p>
+                            <a href="https://wa.me/529993688277?text=Hola,%20me%20interesa%20la%20playera%20Argentina" target="_blank" class="btn-card"><i class="fa-brands fa-whatsapp"></i> Comprar</a>
+                        </div>
+                    </div>
+
+                    <div class="carrusel-card">
+                        <span class="card-badge">Top 4</span>
+                        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&q=80" alt="América 2024">
+                        <div class="card-info">
+                            <h3>Club América Local 24/25</h3>
+                            <p class="precio">$649 MXN</p>
+                            <a href="https://wa.me/529993688277?text=Hola,%20me%20interesa%20la%20playera%20Club%20América" target="_blank" class="btn-card"><i class="fa-brands fa-whatsapp"></i> Comprar</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <button class="carrusel-btn next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <section id="productos" class="productos-section">
+        <div class="section-title">
+            <h2>Catálogo Completo</h2>
+            <p>Explora nuestras playeras y accesorios disponibles</p>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="clubes">Clubes</button>
+            <button class="filter-btn" data-filter="selecciones">Selecciones</button>
+            <button class="filter-btn" data-filter="retro">Retro</button>
+            <button class="filter-btn" data-filter="accesorios">Accesorios</button>
+        </div>
+
+        <div class="grid-productos">
+
+            <div class="product-card" data-category="clubes">
+                <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" alt="Jersey Manchester City">
+                <div class="p-details">
+                    <span class="tag">Clubes</span>
+                    <h4>Manchester City Local 24/25</h4>
+                    <p class="precio">$699 MXN</p>
+                    <a href="https://wa.me/529993688277?text=Hola,%20busco%20la%20playera%20del%20Manchester%20City" target="_blank" class="btn-buy"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="selecciones">
+                <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=600&q=80" alt="Jersey México">
+                <div class="p-details">
+                    <span class="tag">Selecciones</span>
+                    <h4>México Selección Local 2024</h4>
+                    <p class="precio">$699 MXN</p>
+                    <a href="https://wa.me/529993688277?text=Hola,%20busco%20la%20playera%20de%20México" target="_blank" class="btn-buy"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="retro">
+                <img src="https://boyaca7dias.com.co/wp-content/uploads/2026/01/image-31.png.webp" alt="Jersey Brazil Retro">
+                <div class="p-details">
+                    <span class="tag">Retro</span>
+                    <h4>Brasil 2002 Retro Ronaldinho</h4>
+                    <p class="precio">$799 MXN</p>
+                    <a href="https://wa.me/529993688277?text=Hola,%20busco%20la%20playera%20Brasil%202002" target="_blank" class="btn-buy"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accesorios">
+                <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&q=80" alt="Espinilleras y Calcetines">
+                <div class="p-details">
+                    <span class="tag">Accesorios</span>
+                    <h4>Kit Espinilleras + Calcetas Antideslizantes</h4>
+                    <p class="precio">$299 MXN</p>
+                    <a href="https://wa.me/529993688277?text=Hola,%20busco%20el%20Kit%20de%20Espinilleras" target="_blank" class="btn-buy"><i class="fa-brands fa-whatsapp"></i> Pedir</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Promociones -->
+    <section id="promociones" class="promo-banner">
+        <div class="promo-content">
+            <h2>⚡ PROMOCIÓN DEL MES ⚡</h2>
+            <p>¡Lleva 2 Playeras Versión Aficionado por solo <strong>$1,199 MXN</strong>!</p>
+            <p>Incluye estampado de nombre y número sin costo extra en modelos seleccionados.</p>
+            <a href="https://wa.me/529993688277?text=Hola,%20quiero%20aprovechar%20la%20promocion%20de%202x$1,199" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Reclamar Oferta</a>
+        </div>
+    </section>
+
+    <!-- Información de Envíos -->
+    <section id="envios" class="envios-section">
+        <div class="section-title">
+            <h2>Información de Envíos 🚚</h2>
+            <p>Entregas rápidas y seguras a donde estés</p>
+        </div>
+
+        <div class="grid-envios">
+            <div class="envio-card">
+                <i class="fa-solid fa-store"></i>
+                <h3>Entrega en Tienda</h3>
+                <p>Recoge tu pedido directamente en nuestro local comercial sin costo adicional.</p>
+            </div>
+            <div class="envio-card">
+                <i class="fa-solid fa-motorcycle"></i>
+                <h3>Envío Local</h3>
+                <p>Entregas el mismo día o al día siguiente en zona metropolitana mediante mensajería local.</p>
+            </div>
+            <div class="envio-card">
+                <i class="fa-solid fa-box"></i>
+                <h3>Envíos Nacionales</h3>
+                <p>Enviamos a cualquier parte de México vía FedEx o Estafeta (2 a 4 días hábiles).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes (FAQ) -->
+    <section id="faq" class="faq-section">
+        <div class="section-title">
+            <h2>Preguntas Frecuentes 🤔</h2>
+            <p>Resolvemos tus dudas principales</p>
+        </div>
+
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <button class="faq-question">¿Qué calidad tienen las playeras? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>Manejamos la mejor calidad importada (Versión Aficionado y Versión Jugador) con bordados, estampados térmicos y telas de alta respirabilidad.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">¿Puedo personalizar con mi nombre y número? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>¡Sí! Podemos poner el nombre y número que desees con la tipografía oficial del equipo.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">¿Cuáles son los métodos de pago? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <p>Aceptamos pagos en efectivo en tienda, transferencias electrónicas (SPEI) y depósitos en OXXO.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Pie de página con Mapa -->
+    <footer id="contacto" class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Uniformes y Accesorios Deportivo</h3>
+                <p>Tu tienda de confianza para vestir la piel de tu equipo favorito.</p>
+                <div class="redes-sociales">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto y Ubicación</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Dirección de la Tienda (Atención al Público)</p>
+                <p><i class="fa-solid fa-phone"></i> 999 368 8277</p>
+                <p><i class="fa-solid fa-clock"></i> Lunes a Sábado: 10:00 AM - 7:00 PM</p>
+            </div>
+
+            <div class="footer-col mapa-col">
+                <h3>Encuéntranos Aquí</h3>
+                <div class="mapa-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14902.502014197025!2d-89.620000!3d20.970000!2m3!1f0!1f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDU4JzEyLjAiTiA4OcKwMzcnMTIuMCJX!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" 
+                        width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Uniformes y Accesorios Deportivos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Archivo JavaScript Externo -->
+    <script src="js/main.js"></script>
+</body>
+</html>
