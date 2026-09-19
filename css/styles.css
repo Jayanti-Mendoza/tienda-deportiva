@@ -3,10 +3,18 @@
     --primary-color: #7f3232;
     --accent-color: #25d366;
     --bg-image: url('../imagenes/logo.svg');
+    --bg-dark: #121212;
     --bg-card: #1e1e1e;
     --text-light: #ffffff;
     --text-gray: #aaaaaa;
     --font-family: 'Montserrat', sans-serif;
+}
+
+/* CONTROL GLOBAL DE DESBORDAMIENTO */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
 }
 
 * {
@@ -14,6 +22,11 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+}
+
+img, svg, iframe, video {
+    max-width: 100%;
+    height: auto;
 }
 
 body {
@@ -75,7 +88,7 @@ a {
 
 .top-bar {
     background-color: var(--primary-color);
-    padding: 6px 5%;
+    padding: 6px max(10px, 3vw);
     display: flex;
     justify-content: space-between;
     font-size: 13px;
@@ -86,20 +99,23 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 12px max(10px, 3vw);
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
     color: #fff;
 }
 
-.logo i {
-    color: var(--primary-color);
+.navbar-logo, .nav-logo {
+    max-width: 120px;
+    height: auto;
+    max-height: 45px;
+    object-fit: contain;
 }
 
 .nav-menu {
@@ -135,11 +151,12 @@ a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 0 max(10px, 3vw);
 }
 
 .hero-content {
     max-width: 800px;
+    width: 100%;
 }
 
 .badge {
@@ -149,17 +166,19 @@ a {
     font-weight: bold;
     border-radius: 20px;
     text-transform: uppercase;
+    display: inline-block;
 }
 
 .hero h1 {
-    font-size: 45px;
+    font-size: clamp(1.4rem, 5vw, 2.8rem);
     font-weight: 900;
     margin: 15px 0;
+    line-height: 1.2;
 }
 
 .hero p {
     color: var(--text-gray);
-    font-size: 18px;
+    font-size: clamp(0.9rem, 2.5vw, 1.15rem);
     margin-bottom: 25px;
 }
 
@@ -167,6 +186,7 @@ a {
     display: flex;
     gap: 15px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -175,6 +195,7 @@ a {
     font-weight: bold;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     transition: 0.3s;
 }
@@ -205,27 +226,75 @@ a {
 }
 
 .section-title h2 {
-    font-size: 32px;
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
     color: #fff;
 }
 .section-title h3 {
-    font-size: 32px;
-    color: #650d0d;
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
+    color: #ffffff;
 }
 
 .section-title p {
     color: var(--text-gray);
+    margin-top: 5px;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+}
+
+/* SECCIÓN QUIÉNES SOMOS */
+.quienes-somos-section {
+    padding: 60px max(10px, 3vw);
+    background-color: #161616;
+}
+
+.grid-quienes-somos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.qs-card {
+    background: var(--bg-card);
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.qs-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.qs-icon {
+    font-size: 38px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.qs-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.qs-card p {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 /* CARRUSEL DE MÁS VENDIDOS */
 .carrusel-section {
-    padding: 60px 5%;
-    background-color: #F8F9FA;
+    padding: 60px max(10px, 3vw);
+    background-color: #111111;
     color: #FFFFFF;
 }
 
 .carrusel-section .section-title h2 {
-    color: #000;
+    color: #fff;
 }
 
 .carrusel-container {
@@ -248,11 +317,13 @@ a {
 }
 
 .carrusel-card {
-    min-width: calc(33.333% - 14px);
+    flex: 0 0 calc(33.333% - 13.333px);
+    min-width: calc(33.333% - 13.333px);
     background: var(--bg-card);
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
 }
 
 .card-badge {
@@ -264,6 +335,7 @@ a {
     font-size: 12px;
     font-weight: bold;
     border-radius: 4px;
+    z-index: 2;
 }
 
 .carrusel-card img {
@@ -275,6 +347,11 @@ a {
 .card-info {
     padding: 15px;
     text-align: center;
+}
+
+.card-info h3 {
+    font-size: 1.05rem;
+    color: #ffffff;
 }
 
 .precio {
@@ -291,21 +368,44 @@ a {
     padding: 8px;
     border-radius: 5px;
     font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-card:hover {
+    background: #1eb855;
 }
 
 .carrusel-btn {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.8);
     color: #fff;
-    border: none;
-    padding: 15px;
+    border: 1px solid #333;
+    width: 44px;
+    height: 44px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     z-index: 10;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease, background 0.3s ease, transform 0.2s ease;
 }
+
+.carrusel-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.carrusel-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 /* CATALOGO DE PRODUCTOS */
 .productos-section {
-    padding: 60px 5%;
+    padding: 60px max(10px, 3vw);
 }
 
 .filter-container {
@@ -349,11 +449,13 @@ a {
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #282828;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border-color: #3d3d3d;
 }
 
 /* Contenedor e Imagen */
@@ -409,20 +511,38 @@ a {
     line-height: 1.3;
 }
 
-/* Tallas */
+/* BOTONES DE TALLAS */
 .tallas-list {
     display: flex;
     gap: 6px;
-    margin: 4px 0;
+    margin: 6px 0;
+    flex-wrap: wrap;
 }
 
-.tallas-list span {
-    border: 1px solid #444;
+.talla-btn {
+    background: #282828;
     color: var(--text-gray);
-    font-size: 10px;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-weight: 600;
+    border: 1px solid #444;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease-in-out;
+}
+
+.talla-btn:hover {
+    background: #3a3a3a;
+    color: #ffffff;
+    border-color: #666;
+}
+
+.talla-btn.active {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(127, 50, 50, 0.6);
 }
 
 .precio {
@@ -452,52 +572,82 @@ a {
 
 /* PROMOCION */
 .promo-banner {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
                 url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1500&q=80') center/cover;
-    padding: 60px 20px;
+    padding: 60px max(10px, 3vw);
     text-align: center;
     margin: 40px 0;
 }
 
 .promo-content h2 {
     color: #ffeb3b;
-    font-size: 36px;
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
     margin-bottom: 10px;
 }
 
-/* ENVIOS */
-.envios-section {
-    padding: 60px 5%;
-    background-color: #e6e6e6;
-    color: #000;
+/* SECCIÓN UBICACIÓN */
+.ubicacion-section {
+    padding: 60px max(10px, 3vw);
+    background-color: #141414;
 }
 
-.envios-section .section-title h2 {
-    color: #000;
-}
-
-.grid-envios {
+.ubicacion-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.ubicacion-info {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
-.envio-card {
-    background: #ffff;
-    padding: 25px;
-    text-align: center;
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: var(--bg-card);
+    padding: 20px;
     border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
 }
 
-.envio-card i {
-    font-size: 40px;
+.info-card i {
+    font-size: 24px;
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-top: 3px;
+}
+
+.info-card h4 {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.info-card p {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin: 2px 0;
+}
+
+.mapa-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.mapa-container iframe {
+    display: block;
+    width: 100%;
 }
 
 /* FAQ */
 .faq-section {
-    padding: 60px 5%;
+    padding: 60px max(10px, 3vw);
     max-width: 800px;
     margin: 0 auto;
 }
@@ -541,11 +691,12 @@ a {
 .faq-item.open i {
     transform: rotate(180deg);
 }
+
 /* FOOTER */
 footer, .site-footer, .footer {
     background-color: #080808 !important; 
     color: var(--text-gray);
-    padding: 50px 5% 20px;
+    padding: 50px max(10px, 3vw) 20px;
     border-top: 1px solid #222;
 }
 
@@ -560,6 +711,7 @@ footer, .site-footer, .footer {
 /* Control estricto del tamaño del logo */
 .footer-logo {
     width: 120px;
+    max-width: 120px;
     max-height: 120px;
     object-fit: contain;
     margin-bottom: 15px;
@@ -577,6 +729,12 @@ footer, .site-footer, .footer {
     color: #aaaaaa;
     font-size: 14px;
     line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.footer-col p i {
+    color: var(--primary-color);
+    margin-right: 6px;
 }
 
 .footer-col ul {
@@ -598,8 +756,48 @@ footer, .site-footer, .footer {
     color: var(--primary-color);
 }
 
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    background: #1e1e1e;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+}
+
 /* RESPONSIVO */
 @media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 4px;
+        padding: 8px max(10px, 3vw);
+        font-size: 11px;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -621,10 +819,81 @@ footer, .site-footer, .footer {
     }
 
     .carrusel-card {
+        flex: 0 0 100%;
         min-width: 100%;
     }
 
-    .hero h1 {
-        font-size: 30px;
+    .ubicacion-container {
+        grid-template-columns: 1fr;
+    }
+
+    footer, .site-footer {
+        text-align: center;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin: 0 auto 15px auto;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 }
+
+/* ADAPTABILIDAD ULTRA PEQUEÑA (Apple Watch / Pantallas menores a 320px) */
+@media (max-width: 320px) {
+    /* Ajustes para Smartwatches y dispositivos ultra compactos */
+    body {
+        font-size: 13px;
+    }
+    .top-bar {
+        display: none; /* Ocultar barra superior redundante */
+    }
+    .navbar {
+        padding: 8px;
+    }
+    .navbar-logo, .nav-logo {
+        max-width: 90px;
+    }
+    .hero h1 {
+        font-size: 1.2rem;
+    }
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 12px;
+        justify-content: center;
+    }
+    .grid-productos {
+        grid-template-columns: 1fr; /* 1 columna estricta */
+        gap: 15px;
+    }
+    .product-card {
+        width: 100%;
+    }
+    .card-image-container {
+        height: 180px;
+    }
+    .tallas-list .talla-btn, .tallas-list span {
+        padding: 2px 5px;
+        font-size: 9px;
+    }
+    .carrusel-card {
+        min-width: 100%;
+        flex: 0 0 100%;
+    }
+    .mapa-container iframe {
+        height: 200px;
+    }
+}
+
