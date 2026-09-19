@@ -789,6 +789,11 @@ footer, .site-footer, .footer {
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
+    /* Bloquear scroll del fondo cuando el menú esté activo */
+    body.menu-open {
+        overflow: hidden;
+    }
+
     .top-bar {
         flex-direction: column;
         align-items: center;
@@ -798,20 +803,35 @@ footer, .site-footer, .footer {
         font-size: 11px;
     }
 
+    /* MENÚ MÓVIL COMPLETAMENTE OCULTO POR DEFECTO */
     .nav-menu {
         position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: #0a0a0a;
+        left: 0;
+        top: 60px;
         width: 100%;
-        text-align: center;
-        transition: 0.3s;
+        height: calc(100vh - 60px);
+        background-color: #0a0a0a;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
         padding: 20px 0;
+        z-index: 999;
+
+        /* Ocultamiento estricto */
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-20px);
+        transition: all 0.3s ease-in-out;
     }
 
+    /* ESTADO ACTIVO DEL MENÚ */
     .nav-menu.active {
-        left: 0;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
     }
 
     .hamburger {
@@ -848,12 +868,11 @@ footer, .site-footer, .footer {
 
 /* ADAPTABILIDAD ULTRA PEQUEÑA (Apple Watch / Pantallas menores a 320px) */
 @media (max-width: 320px) {
-    /* Ajustes para Smartwatches y dispositivos ultra compactos */
     body {
         font-size: 13px;
     }
     .top-bar {
-        display: none; /* Ocultar barra superior redundante */
+        display: none;
     }
     .navbar {
         padding: 8px;
@@ -875,7 +894,7 @@ footer, .site-footer, .footer {
         justify-content: center;
     }
     .grid-productos {
-        grid-template-columns: 1fr; /* 1 columna estricta */
+        grid-template-columns: 1fr;
         gap: 15px;
     }
     .product-card {
@@ -896,4 +915,3 @@ footer, .site-footer, .footer {
         height: 200px;
     }
 }
-
