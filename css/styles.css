@@ -688,7 +688,7 @@ a {
 }
 
 .faq-item.open .faq-answer {
-    max-height: 100px;
+    max-height: 600px;
     padding: 15px 20px;
 }
 
@@ -855,8 +855,14 @@ footer, .site-footer, .footer {
         text-align: center;
     }
 
+    .tooltip-wa {
+        display: none !important;
+    }
+
     .footer-logo {
-        margin: 0 auto 15px auto;
+        width: 150px !important;
+        max-width: 150px !important;
+        margin: 0 auto 20px auto !important;
     }
 
     .social-links {
