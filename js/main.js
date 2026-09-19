@@ -1,30 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. MENÚ RESPONSIVO (HAMBURGUESA) Y AUTO-CIERRE
+    // 1. MENÚ RESPONSIVO (HAMBURGUESA, BOTÓN CERRAR Y ENLACES)
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
+    const closeMenu = document.getElementById('close-menu');
 
     if (hamburger && navMenu) {
-        // Abrir/Cerrar al presionar el ícono hamburguesa
+        // Abrir menú al tocar el icono hamburguesa
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
+            navMenu.classList.add('active');
         });
 
-        // Cerrar menú automáticamente al hacer clic en cualquier enlace del menú
+        // Cerrar menú al tocar el botón de cierre 'X'
+        if (closeMenu) {
+            closeMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navMenu.classList.remove('active');
+            });
+        }
+
+        // Eliminar la clase 'active' al presionar cualquier enlace .nav-link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
             });
         });
 
-        // Cerrar menú si el usuario toca cualquier otra parte fuera del menú
+        // Cerrar menú si el usuario hace clic fuera del menú
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
                 navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
             }
         });
     }

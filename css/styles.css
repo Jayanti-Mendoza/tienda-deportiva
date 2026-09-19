@@ -140,6 +140,10 @@ a {
     cursor: pointer;
 }
 
+.close-menu {
+    display: none;
+}
+
 /* HERO SECTION */
 .hero {
     height: 75vh;
@@ -789,11 +793,6 @@ footer, .site-footer, .footer {
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
-    /* Bloquear scroll del fondo cuando el menú esté activo */
-    body.menu-open {
-        overflow: hidden;
-    }
-
     .top-bar {
         flex-direction: column;
         align-items: center;
@@ -803,35 +802,34 @@ footer, .site-footer, .footer {
         font-size: 11px;
     }
 
-    /* MENÚ MÓVIL COMPLETAMENTE OCULTO POR DEFECTO */
     .nav-menu {
-        position: fixed;
-        left: 0;
-        top: 60px;
-        width: 100%;
-        height: calc(100vh - 60px);
-        background-color: #0a0a0a;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px 0;
-        z-index: 999;
-
-        /* Ocultamiento estricto */
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transform: translateY(-20px);
-        transition: all 0.3s ease-in-out;
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 80% !important;
+        height: 100vh !important;
+        background-color: #0d0d0d !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 25px !important;
+        z-index: 9999 !important;
+        transition: right 0.3s ease-in-out !important;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.8) !important;
     }
 
-    /* ESTADO ACTIVO DEL MENÚ */
     .nav-menu.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateY(0);
+        right: 0 !important;
+    }
+
+    .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 28px;
+        color: #ffffff;
+        cursor: pointer;
     }
 
     .hamburger {
