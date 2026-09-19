@@ -1,23 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. MENÚ RESPONSIVO (HAMBURGUESA)
+    // 1. MENÚ RESPONSIVO (HAMBURGUESA) Y AUTO-CIERRE
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
+        // Abrir/Cerrar al presionar el ícono hamburguesa
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer clic en un enlace
+        // Cerrar menú automáticamente al hacer clic en cualquier enlace del menú
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
             });
+        });
+
+        // Cerrar menú si el usuario toca cualquier otra parte fuera del menú
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
         });
     }
 
-    // 2. CARRUSEL DE "MÁS VENDIDOS" (CONTROL DE FLECHAS INICIO/FIN SIN ESPACIOS BLANCOS)
+    // 2. CARRUSEL DE "MÁS VENDIDOS" (CONTROL DE FLECHAS SIN ESPACIOS EN BLANCO)
     const track = document.getElementById('carruselTrack');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -39,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             track.style.transform = `translateX(-${index * cardWidth}px)`;
 
-            // Ocultar/mostrar flechas de navegación según posición
+            // Ocultar/mostrar flechas de navegación según la posición
             if (index === 0) {
                 prevBtn.classList.add('hidden');
             } else {
@@ -75,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarrusel(); // Estado inicial
     }
 
-    // 3. FUNCIONALIDAD DE TALLAS Y MENSAJE DE WHATSAPP
+    // 3. FUNCIONALIDAD DE TALLAS Y MENSAJE DE WHATSAPP DINÁMICO
     const productCards = document.querySelectorAll('.product-card');
 
     productCards.forEach(card => {
@@ -154,4 +166,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-});
+});
