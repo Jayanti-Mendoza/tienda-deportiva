@@ -17,34 +17,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. CARRUSEL DE "MÁS VENDIDOS"
-    const track = document.getElementById('carruselTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    if (track && prevBtn && nextBtn) {
-        let index = 0;
+   // 2. CARRUSEL DE "MÁS VENDIDOS" (TOP 5 SIN ESPACIOS BLANCOS)
+const track = document.getElementById('carruselTrack');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
-        const updateCarrusel = () => {
-            const cardWidth = track.querySelector('.carrusel-card').offsetWidth + 20; // Ancho + gap
-            track.style.transform = `translateX(-${index * cardWidth}px)`;
-        };
+if (track && prevBtn && nextBtn) {
+    let index = 0;
 
-        nextBtn.addEventListener('click', () => {
-            const cards = track.querySelectorAll('.carrusel-card');
-            if (index < cards.length - 1) {
-                index++;
-                updateCarrusel();
-            }
-        });
+    // Obtener las tarjetas del carrusel
+    const cards = track.querySelectorAll('.carrusel-card');
 
-        prevBtn.addEventListener('click', () => {
-            if (index > 0) {
-                index--;
-                updateCarrusel();
-            }
-        });
-    }
+    const updateCarrusel = () => {
+        // Calcular cuántas tarjetas son visibles en la pantalla según el ancho
+        const containerWidth = track.parentElement.offsetWidth;
+        const cardWidth = cards[0].offsetWidth + 20; // Ancho + gap
+        const visibleCards = Math.round(containerWidth / cardWidth);
+
+        // El límite máximo es: Total de Tarjetas (5) - Tarjetas Visibles (3 en escritorio = maxIndex 2)
+        const maxIndex = Math.max(0, cards.length - visibleCards);
+
+        // Si el índice actual supera el máximo permitido, se corrige
+        if (index > maxIndex) {
+            index = maxIndex;
+        }
+
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+    };
+
+    nextBtn.addEventListener('click', () => {
+        const containerWidth = track.parentElement.offsetWidth;
+        const cardWidth = cards[0].offsetWidth + 20;
+        const visibleCards = Math.round(containerWidth / cardWidth);
+        const maxIndex = Math.max(0, cards.length - visibleCards);
+
+        if (index < maxIndex) {
+            index++;
+        } else {
+            index = 0; // Vuelve al Top 1 inmediatamente cuando ya no hay más espacio
+        }
+        updateCarrusel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        const containerWidth = track.parentElement.offsetWidth;
+        const cardWidth = cards[0].offsetWidth + 20;
+        const visibleCards = Math.round(containerWidth / cardWidth);
+        const maxIndex = Math.max(0, cards.length - visibleCards);
+
+        if (index > 0) {
+            index--;
+        } else {
+            index = maxIndex; // Salta al Top 3-4-5 sin dejar espacios en blanco
+        }
+        updateCarrusel();
+    });
+
+    window.addEventListener('resize', updateCarrusel);
+}
 
     // 3. FILTRADO DE PRODUCTOS
     const filterBtns = document.querySelectorAll('.filter-btn');
